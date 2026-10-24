@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ========================================
+   УСЛУГИ (СЛАЙДЕР)
+   ======================================== */
+.services {
+    padding: 80px 0;
+    overflow: visible;
+    margin-top: -50px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #223959;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 100%;
+}
+
+.services-swiper {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.swiper-wrapper {
+    padding-bottom: 20px;
+}
+
+/* Карточка 384x384 */
+.service-card {
+    position: relative;
+    width: 384px;
+    height: 384px;
+    background-color: var(--color-bg);
+    border-radius: 24px 24px 0 24px;
+    overflow: hidden;
+    flex: 0 0 384px;
+}
+
+/* Обёртка для картинки */
+.service-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        #3D4553 0%,
+        #26283A 100%
+    );
+    clip-path: path("M 364 0 C 375.046 0 384 8.9543 384 20 V 292 C 384 310.856 384 320.284 378.142 326.142 C 372.284 332 362.856 332 344 332 H 158 C 146.954 332 138 340.954 138 352 C 138 363.201 138 368.802 135.82 373.08 C 133.903 376.843 130.843 379.903 127.08 381.82 C 122.802 384 117.201 384 106 384 H 30 C 13.4315 384 0 370.569 0 354 V 30 C 0 13.4315 13.4315 0 30 0 H 364 Z") !important;
+    border-radius: 0 !important;
+}
+
+.service-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.service-card:hover .service-card__image img {
+    transform: scale(1.05);
+}
+
+
+.service-card__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 30%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0.55) 70%,
+        rgba(0, 0, 0, 0.85) 100%
+    );
+    pointer-events: none;
+}
+
+.service-card__title {
+    position: absolute;
+    bottom: 100px;
+    left: 24px;
+    right: 24px;
+    z-index: 3; 
+    font-size: 32px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Светлая площадка под кнопкой и стрелкой */
+.service-card::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 246px;
+    height: 50px;
+    background-color: var(--color-bg);
+    border-top-left-radius: 24px;
+    z-index: 3;
+}
+
+/* Кнопки внутри выреза */
+.service-card__footer {
+    position: absolute;
+    bottom: 0;
+    width: 236px;
+    right: 0;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 5;
+}
+
+.service-card__btn {
+    background-color: var(--color-card-dark);
+    color: var(--color-white);
+    padding: 10px 32px;
+    border-radius: 24px;
+    transition: background-color 0.3s;
+    display: inline-block;  
+    width: 184px;
+    height: 42px;
+    flex: 0 0 184px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.service-card__btn:hover,
+.service-card__arrow:hover {
+    background-color: #2a2f4a;
+}
+
+.service-card__arrow {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 50%;
+    background-color: var(--color-card-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.service-card__arrow svg {
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translateX(3px);
+}
+
+.service-card__arrow svg path {
+    stroke-width: 1.3;
+}
+
+/* ========================================
+   ФОРМА
+   ======================================== */
+.form-section {
+    padding: 0 0 80px;
+}
+
+.form-wrapper {
+    background: linear-gradient(135deg, #4a7fd4 0%, #2d5bb8 100%);
+    /* срез справа сверху*/
+    clip-path: polygon(
+        0 0,                      /* левый верхний - прямой */
+        calc(100% - 120px) 0,     /* верх, начало диагонального среза */
+        100% 80px,                /* правый край, конец диагонального среза */
+        100% 100%,                /* правый нижний -  прямой */
+        0 100%                    /* левый нижний - прямой */
+    );
+    padding: 40px 60px 40px 40px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    width: 100%;
+    max-width: 1199px;
+    height: 354px;
+    margin: 0 auto;
+}
+
+.specialist-photo {
+    flex-shrink: 0;
+    width: 250px;
+    height: 350px;
+    position: relative;
+    z-index: 2;
+}
+
+.specialist-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.form-content {
+    flex: 1;
+    color: var(--color-white);
+}
+
+.form-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.form-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    opacity: 0.9;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--color-white);
+    font-size: 14px;
+    font-family: var(--font-main);
+    color: var(--color-text);
+}
+
+.form-input::placeholder {
+    color: var(--color-text-light);
+}
+
+.form-submit {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    padding: 16px 32px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+}
+
+.form-submit:hover {
+    background-color: #3db8b0;
+}
+
+.form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--color-white);
+}
+
+.form-consent input {
+    margin-top: 2px;
+    accent-color: var(--color-accent);
+}
+
+.form-consent a {
+    text-decoration: underline;
+    color: var(--color-white);
+}
+
+
+/* =====================================
+   МОБИЛЬНАЯ ВЕРСИЯ: УСЛУГИ И ФОРМА
+   ===================================== */
+@media (max-width: 600px) {
+
+    /* Отступы блока услуг */
+    .services {
+        margin-top: 0;
+        padding: 24px 0 0;
+        overflow: hidden;
+    }
+
+    .services > .container {
+        width: auto;
+        max-width: none;
+        padding: 0;
+        margin: 0 20px;
+    }
+
+    /* Заголовок «Услуги» */
+    .services .section-title {
+        margin: 0 0 16px;
+        font-size: 28px;
+        line-height: 1;
+        text-align: left;
+    }
+
+    /* Слайдер: отступы и расстояние между карточками */
+    .services-swiper {
+        max-width: 100%;
+        width: 328px;
+        padding: 0;
+        margin: 0;
+        overflow: hidden !important;
+    }
+
+    .services-swiper .swiper-wrapper {
+        align-items: flex-start;
+        padding: 0;
+    }
+
+    /* Карточка: изображение 154 × 154 px */
+    .services-swiper .service-card {
+        position: relative;
+        width: 154px !important;
+        min-width: 154px;
+        max-width: 154px;
+        height: 160px !important;
+        flex: 0 0 154px !important;
+        overflow: visible;
+        border-radius: 14px;
+        background: transparent;
+    }
+
+    .services-swiper .service-card::after,
+    .services-swiper .service-card__cutout {
+        display: none !important;
+    }
+
+    .services-swiper .service-card__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 154px !important;
+        height: 125.1px !important;
+        overflow: hidden;
+        clip-path: none !important;
+        border-radius: 8px !important;
+    }
+
+    .services-swiper .service-card__image img {
+        display: block;
+        border-radius: 8px !important;
+    }
+
+    /* Название услуги */
+    .services-swiper .service-card__title {
+        left: 13px;
+        right: 8px;
+        bottom: 42px;
+        margin: 0;
+        font-size: 12.83px;
+        line-height: 1.1;
+        font-weight: 600;
+    }
+
+    /* Кнопка и стрелка под изображением */
+    .services-swiper .service-card__footer {
+        position: absolute;
+        top: 130px;
+        bottom: auto;
+        left: 0;
+        right: auto;
+        width: 154px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0;
+        overflow: visible;
+        z-index: 5;
+    }
+
+    .services-swiper .service-card__btn {
+        min-width: 0;
+        height: 25px;
+        flex: 1 1 auto;
+        padding: 0 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        font-size: 12px;
+        line-height: 1;
+        font-weight: 400;
+        border-radius: 16px;
+    }
+
+    .services-swiper .service-card__arrow {
+        width: 25px;
+        min-width: 25px;
+        height: 25px;
+        flex: 0 0 25px;
+    }
+
+    .services-swiper .service-card__arrow svg {
+        width: 23px;
+        display: block;
+        height: 23px;
+        transform: none;
+    }
+
+    /* Форма ниже услуг */
+    .form-section {
+        position: relative;
+        z-index: 1;
+        margin-top: 24px !important;
+        padding: 0 0 30px;
+        clear: both;
+    }
+
+    .form-section > .container {
+        width: 100%;
+        max-width: none;
+        padding: 0 20px;
+        margin: 0;
+    }
+
+    .form-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        min-height: 0;
+        margin: 0;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        overflow: hidden;
+    }
+
+    .form-content {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .form-title,
+    .form-text {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .form-group {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .form-submit {
+        width: 100%;
+        max-width: 100%;
+    }
+}

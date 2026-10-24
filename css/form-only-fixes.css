@@ -1,0 +1,575 @@
+/*
+  Форма записи — отдельные переопределения.
+*/
+
+.form-section {
+    margin-top: -44px;
+    padding: 0 0 40px;
+}
+
+/* Контейнер меняем только у формы, не затрагивая блок услуг. */
+.form-section > .container {
+    width: min(1200px, calc(100% - 48px));
+    max-width: 1200px;
+    padding: 0;
+    margin-inline: auto;
+}
+
+.form-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    height: 323px;
+    margin: 0 auto;
+    padding: 50px 20px 28px 330px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 18% 50%, #477fd0 0%, #396ab8 35%, #233a5a 100%);
+    border-radius: 0;
+
+    clip-path: url("#formClip");
+}
+
+
+.specialist-photo {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: -55px;
+    width: 440px;
+    height: 430px;
+    margin: 0;
+    flex: none;
+    overflow: hidden;
+}
+
+.specialist-img {
+    display: block;
+    width: 155%;
+    height: 155%;
+    object-fit: contain;
+    object-position: center bottom;
+    transform: translateX(-9%);
+    clip-path: inset(0);
+}
+
+.form-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    min-width: 0;
+    color: #fff;
+}
+
+.form-title {
+    max-width: 680px;
+    margin: 0 0 14px;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.form-text {
+    max-width: 680px;
+    margin: 0 0 16px;
+    font-size: 10px;
+    line-height: 1.35;
+}
+
+.form-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.form-group {
+    min-width: 0;
+    flex: 1 1 0;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 8px;
+}
+
+.form-input {
+    width: 100%;
+    height: 33px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 9px;
+    font-size: 10px;
+}
+
+.form-submit {
+    min-height: 35px;
+    padding: 0 18px;
+    border-radius: 22px;
+    font-size: 10px;
+}
+
+.form-consent {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 9px;
+}
+
+/* По умолчанию показываем десктопный текст */
+.mobile-text {
+    display: none;
+}
+
+.desktop-text {
+    display: inline;
+}
+
+
+/* =========================================
+   ФОРМА ЗАПИСИ — ПЛАНШЕТЫ
+   ========================================= */
+
+@media (max-width: 1000px) {
+    .form-wrapper {
+        height: auto;
+        min-height: 323px;
+        padding: 36px 28px 28px 30%;
+    }
+
+    .specialist-photo {
+        left: 12px;
+        top: -12px;
+        width: 30%;
+        height: calc(100% + 12px);
+    }
+
+    .form-row {
+        flex-wrap: wrap;
+    }
+
+    .form-group {
+        flex-basis: calc(50% - 8px);
+    }
+
+    .form-submit {
+        flex: 1 1 100%;
+    }
+}
+
+
+/* =========================================
+   ФОРМА ЗАПИСИ — ДЕСКТОП И ПЛАНШЕТЫ
+   ========================================= */
+
+@media (min-width: 601px) {
+    .form-title {
+        max-width: 541px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1;
+        margin-bottom: 16px;
+    }
+
+    .form-text {
+        max-width: 720px;
+        margin-bottom: 26px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: -0.2px;
+        color: #D2E3FF;
+        opacity: 1;
+    }
+
+    /* Подписи над полями */
+    .form-label {
+        margin-bottom: 7px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0;
+        color: #FFFFFF;
+        opacity: 1;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.35);
+    }
+
+    /* Текст внутри полей */
+    .form-input {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0;
+        color: #92A1BC;
+        box-sizing: border-box;
+        height: 40px;
+        border-radius: 12px;       
+    }
+
+    .form-input::placeholder {
+        color: #92A1BC;
+        opacity: 1;
+    }
+
+    .form-row {
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .form-group {
+        min-width: 0;
+        flex: 0 1 240px;
+    }
+
+    .form-submit {
+        box-sizing: border-box;
+        width: 201px;
+        min-width: 201px;
+        height: 44px;
+        min-height: 44px;
+        padding: 12px 20px;
+        border: 1px solid #FFFFFF33;
+        border-radius: 40px;
+        background-color: #38BFC4;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+        flex: 0 0 201px;
+        margin-left: 20px;
+    }
+
+    .form-consent {
+        gap: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .form-consent input {
+        appearance: none;
+        -webkit-appearance: none;
+        display: grid;
+        flex: 0 0 20px;
+        place-content: center;
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        padding: 0;
+        
+        border: none;
+        border-radius: 5px;
+        background: #00000033;
+        cursor: pointer;
+        position: relative;
+    }
+
+    /* Ровная белая галочка */
+    .form-consent input:checked::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 7px;
+        width: 9px;
+        height: 5px;
+        margin: 0;
+        border: solid #FFFFFF;
+        border-width: 2px 2px 0 0;
+        transform: rotate(135deg);
+        transform-origin: center;
+        box-sizing: border-box;
+    }
+
+    .form-consent a {
+        color: #38BFC4;
+        font-weight: 700;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 2px;
+    }
+
+    .form-content {
+        transform: translate(20px, 16px);
+    }
+
+    /* Десктоп: свечение эллипсом */
+    .form-wrapper::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        left: 81.5px;
+        top: 152px;
+        width: 267px;
+        height: 267px;
+        border-radius: 50%;
+        background: #FFFFFF;
+        filter: blur(100px);
+        opacity: 1;
+        pointer-events: none;
+    }
+    
+}
+
+/* =========================================
+   ФОРМА ЗАПИСИ — МОБИЛЬНЫЕ ЭКРАНЫ
+   ========================================= */
+
+@media (max-width: 600px) {
+    .form-section {
+        position: relative;
+        z-index: 1;
+        margin-top: 24px !important;
+        padding: 0 0 30px;
+        clear: both;
+    }
+
+    .form-section > .container {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .form-wrapper {
+
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+
+        width: 350px;
+        max-width: 100%;
+        height: 789px;
+        min-height: 789px;
+
+        margin: 0;
+        padding: 26px 18px;
+
+        overflow: hidden;
+        border-radius: 0;
+
+        clip-path: path("M 8.78 59.55 L 59.49 8.8 C 65.12 3.16 72.75 0 80.72 0 H 335 C 343.28 0 350 6.72 350 15 V 669.9 C 350 677.85 346.84 685.48 341.22 691.1 L 290.51 741.86 C 284.88 747.5 277.25 750.66 269.28 750.66 H 174.09 C 166.14 750.66 158.51 753.82 152.88 759.45 L 129.19 783.14 C 125.44 786.89 120.35 789 115.04 789 H 15 C 6.72 789 0 782.28 0 774 V 80.76 C 0 72.81 3.16 65.18 8.78 59.55 Z");
+        background: radial-gradient(
+            circle at 13% 49%,
+            #233A5A 0%,
+            #3C6AB9 100%
+        );
+    }
+
+    .form-wrapper::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        left: 40px;
+        top: 648px;
+        width: 315px;
+        height: 315px;
+        background: #C7DFFF;
+        filter: blur(100px);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .specialist-photo {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 535px;
+        width: 350px;
+        height: 254px;
+        margin: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .specialist-photo img,
+    .specialist-photo .specialist-img {
+        display: block;
+        width: 160%;
+        height: 265%;
+        max-width: none;
+        object-fit: contain;
+        object-position: center bottom;
+        transform: translate(-17%, -9.5%);
+    }
+
+    /* Содержимое формы на мобильном */
+    .form-content {
+        position: relative;
+        z-index: 3;
+        box-sizing: border-box;
+        width: 270px;
+        max-width: calc(100% - 30px);
+        min-width: 0;
+        margin: 0 0 0 30px;
+        padding-top: 58px;
+        color: #fff;
+    }
+
+    /* Заголовок */
+    .form-title {
+        width: 270px;
+        max-width: 100%;
+        margin: 0 0 20px;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1;
+    }
+
+     /* Описание */
+    .form-text {
+        width: 270px;
+        max-width: 100%;
+        margin: 0 0 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #B4D1FF;
+    }
+
+    .desktop-text {
+        display: none;
+    }
+
+    .mobile-text {
+        display: inline;
+    }
+
+    /* Подписи над полями: «Введите ФИО» и «Введите номер телефона» */
+    .form-label {
+        display: block;
+        margin-bottom: 7px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1;
+        color: #FFFFFF;
+        opacity: 1;
+    }
+
+    /* Поля ввода */
+    .form-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+        width: 100%;
+        margin: 0 0 20px;
+    }
+
+    .form-group {
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* Текст внутри полей: «ФИО» и «+7...» */
+    .form-input {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        height: 42px;
+        padding: 0 12px;
+        border: 0;
+        border-radius: 12px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1;
+        color: #92A1BC;
+    }
+
+    /* Цвет текста-подсказки внутри полей */
+    .form-input::placeholder {
+        color: #92A1BC;
+        opacity: 1;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    /* Текст кнопки «Записаться на прием» */
+    .form-submit {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: 44px;
+        min-height: 44px;
+        padding: 0 12px;
+        border-radius: 40px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #FFFFFF;
+        white-space: normal;
+    }
+
+    /* Строка согласия */
+    .form-consent {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #FFFFFF;
+    }
+
+    /* Квадратик с галочкой */
+    .form-consent input {
+        appearance: none;
+        -webkit-appearance: none;
+        display: grid;
+        flex: 0 0 20px;
+        width: 20px;
+        height: 20px;
+        margin: 2px 0 0;
+        border: 0;
+        border-radius: 5px;
+        background: #FFFFFF1A;
+        cursor: pointer;
+        place-content: center;
+    }
+
+    /* Галочка */
+    .form-consent input:checked::after {
+        content: "";
+        width: 9px;
+        height: 6px;
+        box-sizing: border-box;
+        border: solid #38BFC4;
+        border-width: 0 0 2px 2px;
+        transform: rotate(-45deg);
+        margin: -2px 0 0 0;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    /* Ссылка «обработку персональных данных» */
+    .form-consent a {
+        color: #38BFC4;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.4;
+        text-decoration: none;
+    }
+
+    
+}

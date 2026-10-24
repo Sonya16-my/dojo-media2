@@ -1,0 +1,17 @@
+:root {
+    /* Цвета из макета */
+    --color-bg: #f0f2f8;
+    --color-card-dark: #1e2340;
+    --color-card-blue: #2d5bb8;
+    --color-accent: #4ecdc4;
+    --color-white: #ffffff;
+    --color-text: #1a1f3a;
+    --color-text-light: #8a8fa8;
+    
+    /* Шрифты */
+    --font-main: 'Montserrat', sans-serif;
+    
+    /* Размеры */
+    --container-width: 1200px;
+    --card-size: 384px;
+}
